@@ -1,0 +1,436 @@
+/* ================= RESET ================= */
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #f6f8fb;
+  color: #0b1220;
+}
+
+
+/* ================= HEADER ================= */
+
+.top {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 14px 20px;
+  background: linear-gradient(
+    90deg,
+    #2563eb 0%,
+    #3b82f6 50%,
+    #60a5fa 100%
+  );
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+.topin {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+
+.mark {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.mark img {
+  width: 145%;
+  height: 145%;
+  object-fit: contain;
+}
+
+.brand h3 {
+  margin: 0;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.brand p {
+  margin: 0;
+  font-size: 12px;
+  color: rgba(255,255,255,0.9);
+}
+
+
+/* ================= HAMBURGER ================= */
+
+.menuBtn {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.15);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.menuBtn span {
+  width: 20px;
+  height: 2px;
+  background: white;
+  border-radius: 2px;
+  transition: 0.3s ease;
+}
+
+.menuOpen .menuBtn span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menuOpen .menuBtn span:nth-child(2) {
+  opacity: 0;
+}
+
+.menuOpen .menuBtn span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+
+/* ================= SLIDE MENU ================= */
+
+.menuOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s ease;
+  z-index: 200;
+}
+
+.sideMenu {
+  position: fixed;
+  top: 0;
+  right: -280px;
+  width: 260px;
+  height: 100%;
+  background: linear-gradient(180deg, #2563eb, #3b82f6);
+  padding: 20px;
+  transition: 0.3s ease;
+  z-index: 300;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sideMenu a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.sideHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  font-weight: 700;
+}
+
+.sideHeader button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.menuOpen .sideMenu {
+  right: 0;
+}
+
+.menuOpen .menuOverlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
+/* ================= WRAP ================= */
+
+.wrap {
+  max-width: 1100px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+
+/* ================= HERO ================= */
+
+.hero {
+  background: white;
+  padding: 30px;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.sub {
+  color: #475569;
+}
+
+
+/* ================= CONTACT HIGHLIGHT ================= */
+
+.contactHighlight {
+  margin-top: 50px;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  border-radius: 22px;
+  padding: 40px 25px;
+  color: white;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.contactHighlightContent {
+  max-width: 900px;
+  margin: auto;
+}
+
+.contactHighlight h2 {
+  margin-top: 0;
+  font-size: 24px;
+}
+
+.contactHighlight p {
+  opacity: 0.95;
+  margin-bottom: 30px;
+}
+
+/* Adaptive grid (works for 2 or 3 items) */
+.contactInfoRow {
+  display: grid;
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .contactInfoRow {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+}
+
+.contactItem {
+  background: rgba(255,255,255,0.18);
+  padding: 18px;
+  border-radius: 14px;
+}
+
+.contactItem strong {
+  display: block;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.9;
+  margin-bottom: 6px;
+}
+
+.contactItem a,
+.contactItem span {
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+
+/* ================= HOME PROJECT GRID ================= */
+
+.homeProjectGrid {
+  display: grid;
+  gap: 24px;
+  margin-top: 30px;
+}
+
+@media (min-width: 768px) {
+  .homeProjectGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.homeProjectCard {
+  text-decoration: none;
+  color: inherit;
+  background: white;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease;
+}
+
+.homeProjectCard:hover {
+  transform: translateY(-4px);
+}
+
+.homeProjectImages {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.homeProjectImages img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.homeProjectLabel {
+  padding: 16px;
+  font-weight: 600;
+}
+
+.emptySlot {
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e5e7eb;
+  color: #64748b;
+  font-weight: 600;
+}
+
+
+/* ================= VIEW MORE BUTTON ================= */
+
+.viewMoreWrapper {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.viewMoreBtn {
+  display: inline-block;
+  padding: 18px 40px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #60a5fa, #2563eb);
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+  transition: transform 0.2s ease;
+}
+
+.viewMoreBtn:hover {
+  transform: translateY(-4px);
+}
+
+
+/* ================= WORK GRID ================= */
+
+.projectGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.projectCard {
+  display: block;
+  background: white;
+  border-radius: 18px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease;
+}
+
+.projectCard:hover {
+  transform: translateY(-6px);
+}
+
+.projectCard img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.projectInfo {
+  padding: 18px;
+}
+
+
+/* ================= CONTACT FORM DEMO ================= */
+
+.contactFormDemo {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.contactFormDemo label {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.contactFormDemo input,
+.contactFormDemo textarea {
+  width: 100%;
+  padding: 16px;
+  border-radius: 14px;
+  border: 1px solid #d1d5db;
+  font-size: 16px;
+  background: white;
+}
+
+.contactFormDemo input:focus,
+.contactFormDemo textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59,130,246,0.2);
+}
+
+.contactFormDemo button {
+  margin-top: 10px;
+  padding: 18px;
+  border-radius: 16px;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: white;
+}
+
+
+/* PROJECT DETAIL IMAGES */
+
+.projectDetailImages {
+  display: grid;
+  gap: 20px;
+  margin: 30px 0;
+}
+
+.projectDetailImages img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* Side by side on desktop */
+@media (min-width: 768px) {
+  .projectDetailImages {
+    grid-template-columns: 1fr 1fr;
+  }
+}
